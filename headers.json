@@ -1,0 +1,7 @@
+{
+    Content-Type: "application/json",
+    Accept: "application/json",
+    uuid: "012345",
+    ChannelId: "12",
+    client_id: "19327",
+}
