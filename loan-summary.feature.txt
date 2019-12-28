@@ -1,0 +1,18 @@
+Feature: Consulta de saldos para prestamos personales
+
+Background:
+    configure ssl = true
+    host: "http://personal-loan-summary
+    path: /api/v1/loan-retrieve
+    And def headers = apiHeaders
+
+
+Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo personal tipo <prodDefinition>
+    Given url host+path
+    And headers headers
+    When post
+    Then status 200
+    Examples:
+        |caseId |prodDefinition |
+        |001    |Installment    |
+        |002    |Redisposal     |
