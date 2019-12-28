@@ -12,6 +12,7 @@ Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo 
     And headers headers
     When post
     Then status 200
+    And match response.param1 == "valor1"
     Examples:
         |caseId |prodDefinition |
         |001    |Installment    |
