@@ -1,7 +1,7 @@
 Feature: Consulta de saldos para prestamos personales
 Esta API se utiliza para realizar una consulta al sistema ALS
 
-Background:
+Backgroundcillo:
     configure ssl = true
     host: "http://personal-loan-summary
     path: /api/v1/loan-retrieve
