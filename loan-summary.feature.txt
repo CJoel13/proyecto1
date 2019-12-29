@@ -1,5 +1,5 @@
 Feature: Consulta de saldos para prestamos personales
-Esta API se utiliza para realizar una consulta al sistema ALS
+Esta API se utiliza para realizar una consulta al sistema ALS, S111 y S404
 
 Backgrounderrimo:
     configure ssl = true
