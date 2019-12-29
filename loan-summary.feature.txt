@@ -6,6 +6,9 @@ Background:
     host: "http://personal-loan-summary
     path: /api/v1/loan-retrieve
     And def headers = apiHeaders
+    *def ruta = "ruta2"
+    And def request = ruta + request_01.json
+    And def response = ruta + response_01.json
 
 
 Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo personal tipo <prodDefinition>
