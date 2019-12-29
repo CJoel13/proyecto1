@@ -6,9 +6,6 @@ Background:
     host: "http://personal-loan-summary
     path: /api/v1/loan-retrieve
     And def headers = apiHeaders
-    *def ruta = "ruta2"
-    And def request = ruta + request_01.json
-    And def response = ruta + response_01.json
 
 
 Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo personal tipo <prodDefinition>
@@ -34,15 +31,3 @@ Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo 
         |caseId |prodDefinition |
         |001    |Installment    |
         |002    |Redisposal     |
-
-Scenario Outline: <caseId> Validar que el API retorne una respuesta 200 cuando no se encuentra informacion para <prodDefinition>
-    Given url host+path
-    And headers headers
-    And set request.field1 = "2"
-    When post
-    Then status 200
-    And match response.param3 == false
-    Examples
-        |caseId |prodDefinition |
-        |003    |Installment    |
-        |004    |Redisposal     |
