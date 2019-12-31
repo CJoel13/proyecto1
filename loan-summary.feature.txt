@@ -1,4 +1,4 @@
-Feature: Consulta de saldos para prestamos personales
+Feature: loan-summary-detail
 Esta API se utiliza para realizar una consulta al sistema ALS, S111 y S404
 
 Background:
