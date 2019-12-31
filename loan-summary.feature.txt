@@ -7,13 +7,15 @@ Background:
     path: /api/v1/loan-retrieve
     And def headers = apiHeaders
     *def ruta = Ruta1
-    And request = ruta + request_01.json
+    And request_01 = ruta + request_01.json
     And response = ruta + response_01.json
 
 
 Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo personal tipo <prodDefinition>
     Given url host+path
     And headers headers
+    And set request_01.field1 = "1"
+    And request request_01
     When post
     Then status 200
     And match response.param1 == "valor1"
@@ -26,7 +28,8 @@ Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo 
 Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo personal tipo <prodDefinition> con los campos obligatorios
     Given url host+path
     And headers headers
-    And set request.field1 = "1"
+    And set request_01.field1 = "1"
+    And request request_01
     When post
     Then status 200
     And match response.param1 == "valor1"
@@ -38,7 +41,8 @@ Scenario Outline: <caseId> Validar que el API retorne el detalle de un prestamo 
 Scenario Outline: <caseId> Escenario 3 Validar que el API retorne una respuesta 200 cuando no se encuentra informacion para <prodDefinition>
     Given url host+path
     And headers headers
-    And set request.field1 = "2"
+    And set request_01.field1 = "2"
+    And request request_01
     When post
     Then status 200
     And match response.param3 == false
