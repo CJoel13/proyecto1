@@ -1,6 +1,9 @@
 Feature: loan-summary-detail
 Esta API se utiliza para realizar una consulta al sistema ALS, S111 y S404
 
+Master 1
+
+
 Background:
     configure ssl = true
     host: "http://personal-loan-summary
