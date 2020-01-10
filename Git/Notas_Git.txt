@@ -1,0 +1,232 @@
+						- "WORKING DIR"
+$ git init
+	Se crea area de staging (memoria RAM)	- "INDEX"
+	Se crea repositorio			- "HEAD"
+
+$ git add archivo.txt
+	indica a git que existe 	archivo y lo envía a area de Staging
+
+$ git add .
+	Se añaden al repositorio todos los archivos que estén en el directorio que hayan cambiado
+
+DUDA: QUÉ PASA SI HAGO ADD
+	HAGO CAMBIOS
+	HAGO COMMIT
+	QUÉ VERSION SE QUEDA EN REPOSITORIO?
+	QUÉ PASA CON EL STATUS? (ESTA UD. LOCO¡?)
+
+$ git rm --cached archivo.txt
+	Se remueve de Staging archivo previamente añadido
+
+$ git rm --force archivo.txt
+	Se remueven de Git y de disco duro
+
+$ git commit -m "version 1"
+	indica que los cambios están listos y se añade opcionalmente un mensaje para saber qué se hizo
+	Se mueve de staging a repositorio
+	Se crea una nueva versión
+
+$ git status
+	Ver el estatus del repositorio
+	Si hay cambio sin commit por ejemplo
+
+	Antes de "add": 	untracked
+	Despues de "add": 	tracked
+
+===================================================
+LOGS
+===================================================
+$ git log archivo.txt
+$ git log --stat
+	cambios específicos de cada arvhivo
+
+$ git log --all
+	Muestra todo
+
+$ git log --all --graph --decorate --oneline
+	Mostrar historico con grafico
+
+====================================================
+$ code
+	Abre Visual Studio Code
+
+$ git push
+	Enviar a repositorio remoto
+
+$ git pull
+	Traer de repositorio remoto
+
+$ git checkout [id de commit] archivo.txt
+	Traer n cambios de repositorio a directorio (Si aquí se da commit, se vuelan los cambios y se queda version anterior)
+
+	$ git checkout master archivo.txt
+		Trae version actual
+
+
+	git checkout -b rama_x	-CREAR RAMA Y MOVERSE A ELLA
+	git checkout master	-MOVER A RAMA MASTER
+	git branch -d rama_x	-BORRAR RAMA
+
+Branches
+	Master
+	Development
+	HotFix
+	n...
+
+	merge
+	conflicto
+
+$ git config
+	Configuraciones posibles
+$ git config --list 
+	Configuraciones por defecto
+$ git config --list --show-origin
+	Configuraciones guardadas (donde)
+
+$ git config --global user.name "Nombre de usuario"
+$ git config --global user.email "Email de usuario"
+
+$ git show
+	Muestra 
+$ git diff (cadena de log) (cadena de log_2)
+	Muestra cambios entre versiones
+
+$ git reset (id de commmit) --hard
+	No return
+$ git reset (id de commit) --soft
+	Se guardan cambios en Staging
+
+$ git reset HEAD
+	Saca archivos de area de Staging
+
+================================================
+BRANCHES
+
+git branch NOMBRE_RAMA
+
+git merge NOMBRE_RAMA
+	Se trae a rama actual la rama que se indica
+	si existen conflictos se toman o ignoran y se hace commmit
+
+git show-branch --all
+
+gitk
+	ayuda visual de historico de branches
+
+git branch -D nombre_rama
+	Borrar rama
+===============================================
+
+REMOTO
+
+git remote add origin (URL_gitHub)
+
+git remote 
+	(se muestra origin)
+
+git remote -v
+	(Verbal)
+	Se muestra ruta (fetch y pull)
+
+git remote set-url origin (url de ssh)
+	Set valor de url de repositorio remoto
+
+git pull origin master
+	Se traen cambios de "origin/remoto" a la rama master
+	Buena practica es hacer pull antes de hacer push
+
+git pull origin master --allow-unrelated-histories
+	Obligar a traer cambios
+
+git push origin master
+	Se envía a "origin" la rama master
+
+git clone (url_github)
+	Traer proyecto existente a local
+
+
+
+
+
+//FORK
+	Clonar proyecto publico (En github)
+
+	git remote add upstream (ssh o direccion de repositorio ajeno)
+		Se crea nueva rama para traer cambios de repo de alguien mas
+
+
+	git pull upstream master
+		Se trae cambios
+
+
+========================================================
+Llaves
+========================================================
+
+ssh-keygen -t rsa -b 4096 -C "correo"
+	genera llaves
+
+eval $(ssh-agent -s)
+	valida si hay un pid asociado al proceso de llaves ssh
+
+ssh-add ~/.ssh/id_rsa
+	agregar llave privada
+
+============================================================
+TAGS
+============================================================
+	no son cambios, pero se pueden/tienen que enviar a remoto
+	
+	git push origin --tags
+
+git tag -a v0.1 -m "mensaje relacionado a version" [hash]
+	Se añaden tags a un commit conectado
+
+git tag
+	muestra los tags
+
+git show-ref --tags
+	muestra el hash completo de commit asociado
+
+git tag -d nombre_del_tag
+	se borra tag (local)
+
+git push origin :refs/tags/nombre_del_tag
+	Se borra de repositorio remoto
+
+
+=============================================================
+GIT IGNORE
+=============================================================
+.gitignore
+	*.jpg
+
+=============================================================
+REBASE
+=============================================================
+
+git rebase master
+
+git rebase nombre_rama
+	Se ponen cambios en historia sin que se note la rama creada
+	(Solo utilizar en local)
+
+
+=============================================================
+STASH
+=============================================================
+
+Volver rapidamente a version anterior
+
+git stash
+	Regresa a un estado anterior
+
+git stash list
+	Muestra ultimo estado (ultimo commit)
+
+git stash branch nombre_branch
+	Se guarda en branch el estado de stash
+
+git stash drop
+	Borro lo que se hizo en stash (ERRORES, por ejemplo)
+

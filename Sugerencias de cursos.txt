@@ -1,0 +1,7 @@
+Fundamentos de ingenieria de software
+Terminal y linea de comandos
+	(Before)
+
+Expresiones regulares
+	"^expresion" - Al inicio
+	"expresion$" - Al final

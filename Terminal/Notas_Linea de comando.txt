@@ -1,0 +1,88 @@
+linux
+	/ (home)
+
+$ pwd
+	muestra carpeta actual (print working directory)
+
+$ cd 
+	cambia directorio (change directory)
+	cd / (raíz)
+
+	cd .. (regresa a carpeta)
+	$ cd (home)
+
+$ ls 
+	listado de archivos (list)
+
+$ ls -al
+	(listado -"argumento" todos los ocultos)
+
+control + L
+	limpia consola
+
+$ mkdir Proyecto1
+	crear directorio (make directory)
+
+$ touch archivo.txt
+	crear archivo vacío
+
+$ cat archivo.txt
+	mostrar contenido de archivo (concatenate)
+
+$ tac archivo.txt
+	mostrar contenido en orden 3,2,1
+
+$ head -n 5 archivo.txt
+$ tail -n 5 archivo.txt
+	muestra primeras/últimas líneas de archivo
+
+//TRATAMIENTO DE TEXTO
+$ grep "palabra-clave" archivo.txt
+	Encontrar ocurrencias de "palabra-clave" en archivo
+
+$ sed 's/NOMBRE_1/nombre_2/g' arvhivo.txt
+	Sustituir contenido
+
+	$ sed '$d' archivo.txt
+		Elimina última línea
+
+$ awk -F ';' '{print $1}' archivo.csv
+	Indicar delimitador ";" e imprimir primer columna de archivo.csv
+
+	awk -F ';' 'NR > 1 && $2 > 10 { print $1, $2, $3}' numeros.csv
+		INCLUIR LOGICA
+
+$ vim archivo.txt
+	insertar: i
+	comando: :
+	escribir: :w
+	salir: :q
+$ nano archivo.txt
+	
+	
+
+$ !!
+	Ejecuta último comando usado
+
+$ cp
+	Copia archivos o directorios
+	PENDIENTE
+
+$ mv ../development/proximo_curso_2/ .
+	Mover archivos o directorios
+
+
+$ history
+	historial de comandos escritos
+
+$ !72
+	repetir comando (de listado de historial)
+
+$ rm archivo.txt
+	borrar (remove) archivo
+	PRECAUCIÓN, SE PUEDE BORRAR TODO EL DISCO DURO!!!
+
+$ rm --help
+	Muestra serie de explicaciones
+
+$ alias arbolito="comando_que_se_quiere_agregar"
